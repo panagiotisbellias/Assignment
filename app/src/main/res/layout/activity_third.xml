@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdActivity">
+
+    <!-- TextView to show what is located below -->
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/database_results"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <!-- TableLayout to present the results from db if any -->
+    <TableLayout
+        android:id="@+id/resultTable"
+        android:layout_width="match_parent"
+        android:layout_height="497dp"
+        android:stretchColumns="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <!-- First row of the table layout-->
+        <TableRow
+
+            android:id="@+id/firstRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- First element of the row-->
+            <TextView
+                android:id="@+id/rowIdCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:padding="10dip"
+                android:text="@string/id"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <!-- Second element of the row-->
+            <TextView
+                android:id="@+id/userIdCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:padding="10dip"
+                android:text="@string/user_id"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <!-- Third element of the row-->
+            <TextView
+                android:id="@+id/longitudeCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:padding="10dip"
+                android:text="@string/longitude"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <!-- Fourth element of the row-->
+            <TextView
+                android:id="@+id/latitudeCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:padding="10dip"
+                android:text="@string/latitude"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <!-- Fifth element of the row-->
+            <TextView
+                android:id="@+id/timestampCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:padding="10dip"
+                android:text="@string/timestamp"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </TableRow>
+
+        <!-- The rest rows which will display the results are created
+        dynamically through Java code -->
+
+    </TableLayout>
+
+    <!-- Button to return to user insertion (1st activity) -->
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

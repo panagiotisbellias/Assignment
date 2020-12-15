@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Assignment</string>
+    <string name="user_id">User Id</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="insert_user">Insert User</string>
+    <string name="next">Next</string>
+    <string name="choose_dt">Timestamp</string>
+    <string name="results">See the results</string>
+    <string name="database_results">Database Results</string>
+    <string name="previous">Return to user insertion</string>
+    <string name="id">ID</string>
+</resources>
