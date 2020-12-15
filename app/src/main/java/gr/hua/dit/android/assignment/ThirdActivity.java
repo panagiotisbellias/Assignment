@@ -41,7 +41,7 @@ public class ThirdActivity extends AppCompatActivity {
         ArrayList<UserRecord> users = new ArrayList<>(); // The array list that will be used to keep the users' records from the database
 
         // Check what is empty and take results from db
-        String table = DatabaseHelper.TABLE_NAME; String[] columns = new String[]{DatabaseHelper.FIELD_1, DatabaseHelper.FIELD_2,
+        String table = DatabaseHelper.TABLE_NAME; String[] columns = new String[]{"rowid", DatabaseHelper.FIELD_1, DatabaseHelper.FIELD_2,
                 DatabaseHelper.FIELD_3, DatabaseHelper.FIELD_4};
         String selection; String[] selectionArgs;
         if (!(userId.isEmpty() || dt == 0)){
@@ -62,8 +62,8 @@ public class ThirdActivity extends AppCompatActivity {
         // Add results in the array list
         if (cursor.moveToFirst()){
             do {
-                UserRecord user = new UserRecord(cursor.getCount()/*must take db rowId*/, cursor.getString(0),
-                        cursor.getFloat(1), cursor.getFloat(2), cursor.getLong(3));
+                UserRecord user = new UserRecord(cursor.getLong(0), cursor.getString(1),
+                        cursor.getFloat(2), cursor.getFloat(3), cursor.getLong(4));
                 users.add(user);
             } while (cursor.moveToNext());
         } else {

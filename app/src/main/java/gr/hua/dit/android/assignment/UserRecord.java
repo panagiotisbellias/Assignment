@@ -6,13 +6,13 @@ package gr.hua.dit.android.assignment;
 public class UserRecord {
 
     /* User's attributes*/
-    private int id;
+    private long id;
     private final String userId;
     private final float longitude, latitude;
     private final long timestamp;
 
     /* Constuctors needed */
-    public UserRecord(int id, String userId, float longitude, float latitude, long timestamp) {
+    public UserRecord(long id, String userId, float longitude, float latitude, long timestamp) {
         this.id = id;
         this.userId = userId;
         this.longitude = longitude;
@@ -28,7 +28,7 @@ public class UserRecord {
     }
 
     /* Getters needed */
-    public int getId() {
+    public long getId() {
         return id;
     }
 
