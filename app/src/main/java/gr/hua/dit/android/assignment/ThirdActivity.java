@@ -95,7 +95,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         for (int i = 0; i < users.size(); i++) { // For every user record
             // Creation row
-            final TableRow tableRow = new TableRow(this); tableRow.setId(i);
+            final TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                     TableLayout.LayoutParams.WRAP_CONTENT)); // Set layout parameters to the row
 
@@ -104,6 +104,8 @@ public class ThirdActivity extends AppCompatActivity {
             String id = users.get(i).getId()+""; // Define the value that needs to be set
             text1.setText(id); // Set the TextView value
             text1.setTextColor(Color.BLACK); // Set TextView text color
+            text1.setPadding(10, 10, 10, 10); // Set padding
+            text1.setTextSize(14); // Set Text Size
             // Set layout parameters to the text view
             text1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text1); // Add text view to the table row
@@ -112,6 +114,8 @@ public class ThirdActivity extends AppCompatActivity {
             final TextView text2 = new TextView(this);
             text2.setText(users.get(i).getUserId()); // Set the TextView value
             text2.setTextColor(Color.BLACK); // Set TextView text color
+            text2.setPadding(10, 10, 10, 10); // Set padding
+            text2.setTextSize(14); // Set Text Size
             // Set layout parameters to the text view
             text2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text2); // Add text view to the table row
@@ -121,6 +125,8 @@ public class ThirdActivity extends AppCompatActivity {
             String longitude = users.get(i).getLongitude()+"";  // Define the value that needs to be set
             text3.setText(longitude); // Set the TextView value
             text3.setTextColor(Color.BLACK); // Set TextView text color
+            text3.setPadding(10, 10, 10, 10); // Set padding
+            text3.setTextSize(14); // Set Text Size
             // Set layout parameters to the text view
             text3.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text3); // Add text view to the table row
@@ -130,6 +136,8 @@ public class ThirdActivity extends AppCompatActivity {
             String latitude = users.get(i).getLatitude()+"";  // Define the value that needs to be set
             text4.setText(latitude); // Set the TextView value
             text4.setTextColor(Color.BLACK); // Set TextView text color
+            text4.setPadding(10, 10, 10, 10); // Set padding
+            text4.setTextSize(14); // Set Text Size
             // Set layout parameters to the text view
             text4.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text4); // Add text view to the table row
@@ -139,6 +147,8 @@ public class ThirdActivity extends AppCompatActivity {
             String dt = users.get(i).getTimestamp()+"";  // Define the value that needs to be set
             text5.setText(dt); // Set the TextView value
             text5.setTextColor(Color.BLACK); // Set TextView text color
+            text5.setPadding(10, 10, 10, 10); // Set padding
+            text5.setTextSize(14); // Set Text Size
             // Set layout parameters to the text view
             text5.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text5); // Add text view to the table row
