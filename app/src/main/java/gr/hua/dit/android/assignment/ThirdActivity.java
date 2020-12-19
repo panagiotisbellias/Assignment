@@ -52,7 +52,7 @@ public class ThirdActivity extends AppCompatActivity {
         } else if (dt == 0 && !(userId.isEmpty())){
             selection = DatabaseHelper.FIELD_1 + " = ? ";
             selectionArgs = new String[]{userId};
-        } else if (dt != 0 && userId.isEmpty()){
+        } else if (dt != 0){
             selection = DatabaseHelper.FIELD_4 + " = ? ";
             selectionArgs = new String[]{dt+""};
         } else {
