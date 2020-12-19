@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -28,6 +29,7 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) { // The onCreate method that will be called when the activity launches
         super.onCreate(savedInstanceState); // The onCreate method from the superclass AppCompatActivity
         setContentView(R.layout.activity_third); // Setting the layout resource for this activity
+        Log.println(Log.INFO, "Info message", "Loading third activity");
 
         //Get values with intent extras
         intent = getIntent();
@@ -61,6 +63,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         // Add results in the array list
         if (cursor.moveToFirst()){
+            Log.println(Log.INFO, "Info message", "There are results in database");
             do {
                 UserRecord user = new UserRecord(cursor.getLong(0), cursor.getString(1),
                         cursor.getFloat(2), cursor.getFloat(3), cursor.getLong(4));
@@ -68,6 +71,7 @@ public class ThirdActivity extends AppCompatActivity {
             } while (cursor.moveToNext());
         } else {
             Toast.makeText(this, "There are no data for this search", Toast.LENGTH_SHORT).show();
+            Log.println(Log.DEBUG, "Debug message", "Nothing from DB");
         }
 
         // If there are no results go to the first activity
@@ -86,6 +90,7 @@ public class ThirdActivity extends AppCompatActivity {
     private void returnToFirstActivity(Intent intent){ // Method to return to the first activity to insert new user records
         // Create a new intent object to pass to the next activity
         intent = new Intent(ThirdActivity.this, MainActivity.class);
+        Log.println(Log.INFO, "Intent message", "Loading main activity");
         startActivity(intent); // Start the activity which is defined in the intent
         finish();  // Finish the process which starts the activity when done
     }
@@ -93,11 +98,13 @@ public class ThirdActivity extends AppCompatActivity {
     private void resultView(ArrayList<UserRecord> users) { // Method to view the database results
         final TableLayout tableLayout = (TableLayout) findViewById(R.id.resultTable); // Get the created table layout to edit it
 
+        Log.println(Log.INFO, "Info message", "Creating result table");
         for (int i = 0; i < users.size(); i++) { // For every user record
             // Creation row
             final TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                     TableLayout.LayoutParams.WRAP_CONTENT)); // Set layout parameters to the row
+            Log.println(Log.INFO, "Info message", "Creating row " + i);
 
             // Creation textView1
             final TextView text1 = new TextView(this);
@@ -109,6 +116,7 @@ public class ThirdActivity extends AppCompatActivity {
             // Set layout parameters to the text view
             text1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text1); // Add text view to the table row
+            Log.println(Log.INFO, "Info message", "TextView 1");
 
             // Creation textView2
             final TextView text2 = new TextView(this);
@@ -119,6 +127,7 @@ public class ThirdActivity extends AppCompatActivity {
             // Set layout parameters to the text view
             text2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text2); // Add text view to the table row
+            Log.println(Log.INFO, "Info message", "TextView 2");
 
             // Creation textView3
             final TextView text3 = new TextView(this);
@@ -130,6 +139,7 @@ public class ThirdActivity extends AppCompatActivity {
             // Set layout parameters to the text view
             text3.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text3); // Add text view to the table row
+            Log.println(Log.INFO, "Info message", "TextView 3");
 
             // Creation textView4
             final TextView text4 = new TextView(this);
@@ -141,6 +151,7 @@ public class ThirdActivity extends AppCompatActivity {
             // Set layout parameters to the text view
             text4.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text4); // Add text view to the table row
+            Log.println(Log.INFO, "Info message", "TextView 4");
 
             // Creation textView5
             final TextView text5 = new TextView(this);
@@ -152,8 +163,10 @@ public class ThirdActivity extends AppCompatActivity {
             // Set layout parameters to the text view
             text5.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             tableRow.addView(text5); // Add text view to the table row
+            Log.println(Log.INFO, "Info message", "TextView 5");
 
             tableLayout.addView(tableRow); // Add the row to the table layout
+            Log.println(Log.INFO, "Info message", "Row " + i + "added");
         }
 
     }

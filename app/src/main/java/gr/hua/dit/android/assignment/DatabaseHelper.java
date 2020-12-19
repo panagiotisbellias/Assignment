@@ -5,6 +5,7 @@ package gr.hua.dit.android.assignment;
 /* Required classes are imported here */
 import android.content.*;
 import android.database.sqlite.*;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -36,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public long insertUser(UserRecord user){ // Method that inserts user's records in the database
+        Log.println(Log.INFO, "DB message", "User insertion");
         ContentValues values = new ContentValues(); // using contentValues object
         values.put(FIELD_1, user.getUserId()); // Set field 1 value
         values.put(FIELD_2, user.getLongitude()); // Set field 2 value

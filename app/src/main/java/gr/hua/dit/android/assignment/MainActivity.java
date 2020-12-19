@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) { // The onCreate method that will be called when the main activity launches
         super.onCreate(savedInstanceState); // The onCreate method from the superclass AppCompatActivity
         setContentView(R.layout.activity_main); // Setting the layout resource for this activity
+        Log.println(Log.INFO, "Info message", "Loading main activity");
         databaseHelper = new DatabaseHelper(MainActivity.this); // Make a db helper object to handle the sqlite database we need
 
         // Instructions to the user
@@ -30,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() { // Set click listener to the button with the below processes
             @Override
             public void onClick(View v) { // The onClick method that define the processes which will run when user presses the button
-                // Information message to the user -- Maybe this will be converted to log message
-                Toast.makeText(MainActivity.this, "Inserting User...", Toast.LENGTH_SHORT).show();
+                Log.println(Log.INFO, "Database Information", "Inserting User..."); // Information message
                 EditText userIdEditText = findViewById(R.id.editTextText1); // Get the created edit text from the layout to take the value
                 String userId = userIdEditText.getText().toString(); // Take user id value from the edit text
                 // Get the created edit text from the layout to take the value
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 long id = databaseHelper.insertUser(user); // And this object gets inserted in the database
                 // Information message to the user for the row id of the record that just got inserted
                 Toast.makeText(MainActivity.this, "User inserted with row id: " + id, Toast.LENGTH_SHORT).show();
+                Log.println(Log.INFO, "Info message", "User" + id + "inserted");
             }
         });
 
@@ -51,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() { // Set click listener to the button with the below processes
             @Override
             public void onClick(View v) { // The onClick method that define the processes which will run when user presses the button
-                // Information message to the user -- Maybe this will be converted to log message
-                Toast.makeText(MainActivity.this, "You go on 2nd activity", Toast.LENGTH_SHORT).show();
+                Log.println(Log.INFO, "Intent Information", "Browsing second activity"); // Information message
                 // Create a new intent object to pass to the next activity
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent); // Start the activity which is defined in the intent

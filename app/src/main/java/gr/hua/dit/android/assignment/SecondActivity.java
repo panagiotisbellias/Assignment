@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,6 +32,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) { // The onCreate method that will be called when the activity launches
         super.onCreate(savedInstanceState); // The onCreate method from the superclass AppCompatActivity
         setContentView(R.layout.activity_second); // Setting the layout resource for this activity
+        Log.println(Log.INFO, "Info message", "Loading second activity");
         spinner = (Spinner) findViewById(R.id.spinner); // Get the created spinner from the layout to edit it
 
         /*  Fill the dropdown list with data from the db
@@ -41,8 +43,10 @@ public class SecondActivity extends AppCompatActivity {
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, new String[]{DatabaseHelper.FIELD_4},
                 null, null, null, null, null, null);
         if (cursor.moveToFirst()){
+            Log.println(Log.INFO, "Info message", "There is at least one timestamp at the database");
             do {
-                //Toast.makeText(this, cursor.getString(0), Toast.LENGTH_SHORT).show(); - make it log message with if condition
+                //Log message
+                Log.println(Log.DEBUG, "Database Debugging", "Load and add timestamp: " + cursor.getString(0));
                 timestamps.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
@@ -55,8 +59,7 @@ public class SecondActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() { // Set click listener to the button with the below processes
             @Override
             public void onClick(View v) { // The onClick method that define the processes which will run when user presses the button
-                // Information message to the user -- Maybe this will be converted to log message
-                Toast.makeText(SecondActivity.this, "You go on 3rd activity", Toast.LENGTH_SHORT).show();
+                Log.println(Log.INFO, "Intent Information", "Browsing third activity"); // Information message
                 // Create a new intent object to pass to the next activity
                 Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
 

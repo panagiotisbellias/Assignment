@@ -2,6 +2,8 @@ package gr.hua.dit.android.assignment;
 
 /* Author: it21871 Panagiotis Bellias */
 
+import android.util.Log;
+
 // The UserRecord class which represents a user's record
 public class UserRecord {
 
@@ -13,6 +15,7 @@ public class UserRecord {
 
     /* Constuctors needed */
     public UserRecord(long id, String userId, float longitude, float latitude, long timestamp) {
+        Log.println(Log.INFO, "Info message", "User created");
         this.id = id;
         this.userId = userId;
         this.longitude = longitude;
@@ -21,6 +24,7 @@ public class UserRecord {
     }
 
     public UserRecord(String userId, float longitude, float latitude) {
+        Log.println(Log.INFO, "Info message", "User created");
         this.userId = userId;
         this.longitude = longitude;
         this.latitude = latitude;
